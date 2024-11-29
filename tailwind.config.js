@@ -5,7 +5,13 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        jakarta: ['"Plus Jakarta Sans"', 'sans-serif'], // Add the custom font
+        redhat: ['"Red Hat Display"', 'sans-serif'],
+        dmSans: ['DM Sans', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 }
