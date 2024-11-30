@@ -15,21 +15,21 @@ function LandingPage() {
         <div className='w-full h-auto flex flex-col px-5 py-10 sm:px-20 md:px-5 md:flex-row lg:px-20'>
             <div className='w-full h-auto flex flex-col gap-4 md:w-[50%] lg:w-[60%] xl:w-[55%]'>
                 <div className='w-auto h-auto flex flex-col'>
-                    <span className='font-dmSans font-[500] text-[#003140]'>Finance Services</span>
+                    <span className='font-dmSans font-[500] text-[#0C162A]'>Finance Services</span>
                     <div className='w-auto h-5 flex items-center relative'>
-                        <span className='w-32 h-0.5 bg-[#003140] rounded-sm'></span>
+                        <span className='w-32 h-0.5 bg-[#0C162A] rounded-sm'></span>
                         <LuMoveRight size={25} className='absolute left-[120px] text-[#003140]' />
                     </div>
                 </div>
                 <div className='w-full h-auto flex flex-col gap-2'>
-                    <p className='text-3xl font-semibold font-jakarta md:text-4xl lg:text-5xl 2xl:text-6xl'>Manage Your <span className='text-[#08AABD]'>Financial</span></p>
+                    <p className='text-3xl font-semibold font-jakarta md:text-4xl lg:text-5xl 2xl:text-6xl'>Manage Your <span className='text-[#0159A5]'>Financial</span></p>
                     <p className='text-3xl font-semibold font-jakarta md:text-4xl lg:text-5xl 2xl:text-6xl'>Services by Single Swap</p>
                     <p className='font-dmSans text-sm mt-5 lg:pr-40 xl:text-base'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
                 </div>
                 <div className='w-full h-auto mt-5 xl:mt-10'>
                     <div className='w-auto h-auto flex items-center gap-4'>
-                        <NavLink to='/' className='bg-[#08AABD] font-[500] font-dmSans text-white px-3 py-2 rounded-xl flex gap-3 items-center active:bg-[#09cde3] cursor-pointer md:hover:bg-[#09cde3] xl:px-5 xl:text-lg'>Get Started <LuMoveRight size={20} /></NavLink>
-                        <NavLink to='/' className='bg-[#08AABD1A] border border-[#08AABD] font-[500] font-dmSans px-3 py-2 rounded-xl flex gap-3 items-center active:bg-[#08abbd3d] cursor-pointer md:hover:bg-[#08abbd3d] xl:px-5 xl:text-lg'>How It Works <LuMoveRight size={20} /></NavLink>
+                        <NavLink to='/' className='bg-[#0159A5] font-[500] font-dmSans text-white px-3 py-2 rounded-xl flex gap-3 items-center active:bg-[#0158a5ce] cursor-pointer md:hover:bg-[#0158a5ce] xl:px-5 xl:text-lg'>Get Started <LuMoveRight size={20} /></NavLink>
+                        <NavLink to='/' className='bg-[#08AABD1A] text-[#292833] border border-[#0159A5] font-[500] font-dmSans px-3 py-2 rounded-xl flex gap-3 items-center active:bg-[#08abbd3d] cursor-pointer md:hover:bg-[#08abbd3d] xl:px-5 xl:text-lg'>How It Works <LuMoveRight size={20} /></NavLink>
                     </div>
                 </div>
                 <div className='w-full h-auto flex gap-28 mt-5 xl:mt-10'>

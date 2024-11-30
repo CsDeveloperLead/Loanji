@@ -3,6 +3,8 @@ import LandingPage from './HomeComponents/LandingPage'
 import ScrollBanner from './HomeComponents/ScrollBanner'
 import WhyChooseUs from './HomeComponents/WhyChooseUs'
 import CaseStudies from './HomeComponents/CaseStudies'
+import Section3 from './HomeComponents/Section3'
+import Updates from './HomeComponents/Updates'
 
 function Home() {
   return (
@@ -11,6 +13,8 @@ function Home() {
       <ScrollBanner />
       <WhyChooseUs />
       <CaseStudies />
+      <Section3 />
+      <Updates />
     </div>
   )
 }
