@@ -13,7 +13,7 @@ function Section3() {
             <div className='w-full h-auto flex flex-col my-7 px-5 gap-4 md:flex-row lg:justify-center lg:px-10 xl:mt-20'>
                 <div className='w-[95%] flex justify-center items-center h-[400px] mx-auto relative sm:w-[70%] md:w-[50%] md:h-auto lg:w-[45%] xl:justify-start xl:h-[550px]'>
                     <img src="" alt="" className='w-[90%] h-[340px] md:h-full rounded-3xl bg-gray-200 relative z-10 xl:w-[90%] xl:h-full' />
-                    <div style={{ boxShadow: '4px 4px 20px 0px #00000026' }} className='w-40 h-[160px] flex flex-col absolute -top-8 left-3 bg-white gap-2 px-4 py-2 z-50 rounded-xl lg:left-5 xl:left-7'>
+                    <div style={{ boxShadow: '4px 4px 20px 0px #00000026' }} className='w-40 h-[160px] flex flex-col absolute -top-8 left-3 bg-white gap-2 px-4 py-2 z-30 rounded-xl lg:left-5 xl:left-7'>
                         <h1 className='text-center font-jakarta font-[600]'>Saving Growth</h1>
                         <div className='w-full h-auto relative flex justify-center items-center'>
                             <p className='border-[10px] border-[#11223B] h-20 w-20 flex justify-center items-center rounded-full'>
@@ -23,7 +23,7 @@ function Section3() {
                         </div>
                         <p className='text-center font-jakarta font-[600]'>0 - 80%</p>
                     </div>
-                    <div style={{ boxShadow: '4px 4px 20px 0px #00000026' }} className='hidden lg:w-56 lg:h-[160px] lg:flex lg:flex-col lg:absolute lg:-bottom-8 lg:right-0 xl:right-5 lg:bg-white lg:gap-2 lg:px-4 lg:py-2 lg:z-50 lg:rounded-xl'>
+                    <div style={{ boxShadow: '4px 4px 20px 0px #00000026' }} className='hidden lg:w-56 lg:h-[160px] lg:flex lg:flex-col lg:absolute lg:-bottom-8 lg:right-0 xl:right-5 lg:bg-white lg:gap-2 lg:px-4 lg:py-2 lg:z-30 lg:rounded-xl'>
                         <h1 className='text-center font-jakarta font-[600]'>Monthly Payment Status</h1>
                         <img src={Graph} alt="Grpah Image" />
                     </div>

@@ -7,7 +7,7 @@ import { LuPhone } from "react-icons/lu";
 
 function Section1() {
     return (
-        <div className='w-full h-auto flex flex-col px-5 my-5 gap-5 md:flex-row-reverse lg:justify-center lg:gap-10 xl:gap-20 xl:my-10'>
+        <div className='w-full h-auto flex flex-col px-5 mt-20 md:mt-24 xl:mt-32 my-5 gap-5 md:flex-row-reverse lg:justify-center lg:gap-10 xl:gap-20 xl:my-10'>
             <div className='w-full h-auto flex flex-col gap-4 md:w-[50%] lg:w-[40%] xl:w-[30%]'>
                 <div className='w-auto h-auto flex flex-col'>
                     <span className='font-dmSans font-[500] text-[#0159A5]'>Contact Form</span>

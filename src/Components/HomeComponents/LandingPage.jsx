@@ -12,7 +12,7 @@ import Small4 from '../../assets/HomePageImages/LandingPageImages/small4.png'
 
 function LandingPage() {
     return (
-        <div className='w-full h-auto flex flex-col px-5 py-10 sm:px-20 md:px-5 md:flex-row lg:px-20'>
+        <div className='w-full h-auto mt-12 md:mt-14 xl:mt-24 flex flex-col px-5 py-10 sm:px-20 md:px-5 md:flex-row lg:px-20'>
             <div className='w-full h-auto flex flex-col gap-4 md:w-[50%] lg:w-[60%] xl:w-[55%]'>
                 <div className='w-auto h-auto flex flex-col'>
                     <span className='font-dmSans font-[500] text-[#0C162A]'>Finance Services</span>
@@ -55,12 +55,12 @@ function LandingPage() {
             </div>
             <div className='w-[50%] h-auto hidden lg:w-[40%] xl:w-[45%] md:flex md:justify-center md:items-center relative'>
                 <img src={Card1} alt="Card Image" className='w-[320px] mx-auto absolute bottom-16 left-20 z-10 xl:w-[380px] xl:left-28 2xl:left-36 2xl:w-[420px]' />
-                <img src={Card2} alt="Card Image" className='w-[400px] absolute bottom-0 z-50 xl:w-[460px] 2xl:w-[480px]' />
-                <img src={Small1} alt="rounded image" className='absolute top-24 z-50 left-0 w-24 lg:top-28 xl:left-16 2xl:left-20 2xl:top-28' />
-                <img src={Small2} alt="rounded image" className='absolute top-0 z-50 w-24 left-40 lg:top-[-20px] xl:top-[-40px] xl:left-56' />
-                <img src={Small3} alt="rounded image" className='absolute top-24 z-50 w-24 right-0 xl:right-10 xl:top-36' />
-                <img src={Small4} alt="rounded image" className='absolute bottom-0 z-50 w-24 right-0 xl:right-11 2xl:right-[90px]' />
-                <img src={Small4} alt="rounded image" className='absolute bottom-10 z-50 w-24 left-5 xl:left-20 xl:bottom-14 2xl:bottom-20' />
+                <img src={Card2} alt="Card Image" className='w-[400px] absolute bottom-0 z-20 xl:w-[460px] 2xl:w-[480px]' />
+                <img src={Small1} alt="rounded image" className='absolute top-24 z-20 left-0 w-24 lg:top-28 xl:left-16 2xl:left-20 2xl:top-28' />
+                <img src={Small2} alt="rounded image" className='absolute top-0 z-20 w-24 left-40 lg:top-[-20px] xl:top-[-40px] xl:left-56' />
+                <img src={Small3} alt="rounded image" className='absolute top-24 z-20 w-24 right-0 xl:right-10 xl:top-36' />
+                <img src={Small4} alt="rounded image" className='absolute bottom-0 z-20 w-24 right-0 xl:right-11 2xl:right-[90px]' />
+                <img src={Small4} alt="rounded image" className='absolute bottom-10 z-20 w-24 left-5 xl:left-20 xl:bottom-14 2xl:bottom-20' />
             </div>
         </div>
     )

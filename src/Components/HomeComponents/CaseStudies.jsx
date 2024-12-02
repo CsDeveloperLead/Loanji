@@ -1,9 +1,34 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { LuMoveRight } from "react-icons/lu";
 import { NavLink } from 'react-router-dom';
 import { BsFillArrowUpRightCircleFill } from "react-icons/bs";
 
 function CaseStudies() {
+  const sliderRef = useRef(null);
+  const slider2Ref = useRef(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY; // Get vertical scroll position
+      if (scrollTop >= 1180) {
+        if (sliderRef.current && slider2Ref.current) {
+          sliderRef.current.style.transform = `translateX(-${scrollTop - 1180}px)`;
+          if(scrollTop >= 1200){
+          slider2Ref.current.style.transform = `translateX(${scrollTop - 1180}px)`;
+          }
+        }
+      };
+
+    }
+
+    window.addEventListener('scroll', handleScroll);
+
+    // Cleanup event listener on unmount
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <div className='w-full h-auto flex flex-col gap-8 xl:gap-12'>
       <div className='w-full h-auto flex flex-col gap-4 px-5 md:px-10 xl:px-20 md:flex-row'>
@@ -28,7 +53,7 @@ function CaseStudies() {
         </div>
       </div>
       <div className='w-full h-auto flex flex-col gap-5 xl:gap-10'>
-        <div className='disable-scrollbar w-full h-auto flex overflow-x-scroll gap-5 xl:gap-8 px-1'>
+        {/* <div className='disable-scrollbar w-full h-auto flex overflow-x-scroll gap-5 xl:gap-8 px-1'>
           <div className='min-w-60 h-80 rounded-3xl border overflow-hidden relative md:min-w-80 md:h-96 xl:min-w-[400px] xl:h-[450px]'>
             <img src="" alt="" className='bg-[#D6D6EB] h-full w-full object-cover' />
             <div className='w-full h-auto flex absolute bottom-7 px-3 xl:bottom-10 xl:px-10'>
@@ -65,29 +90,133 @@ function CaseStudies() {
               </div>
             </div>
           </div>
-        </div>
-        <div className='disable-scrollbar w-full h-auto flex overflow-x-scroll gap-5 xl:gap-8 px-1'>
-          <div className='min-w-96 h-80 rounded-3xl border overflow-hidden relative md:min-w-[700px] md:h-96 xl:min-w-[800px] xl:h-[450px]'>
-            <img src="" alt="" className='bg-[#D6D6EB] h-full w-full object-cover' />
-            <div className='w-full h-auto flex absolute bottom-7 px-3 xl:bottom-10 xl:px-10'>
-              <div className='w-full flex-1 flex flex-col text-white font-jakarta xl:gap-4'>
-                <span className='text-3xl font-bold md:text-4xl xl:text-5xl'>Loans Solutions</span>
-                <span className='md:text-lg xl:text-xl'>Financial Services</span>
+        </div> */}
+        <div
+          className="disable-scrollbar w-full h-auto flex overflow-x-scroll scroll-smooth px-1"
+        >
+          <div ref={sliderRef} className='w-full h-auto flex gap-5 xl:gap-8'>
+            <div className='min-w-60 h-80 rounded-3xl border overflow-hidden relative md:min-w-80 md:h-96 xl:min-w-[400px] xl:h-[450px]'>
+              <img src="" alt="" className='bg-[#D6D6EB] h-full w-full object-cover' />
+              <div className='w-full h-auto flex absolute bottom-7 px-3 xl:bottom-10 xl:px-10'>
+                <div className='w-full flex-1 flex flex-col text-white font-jakarta xl:gap-4'>
+                  <span className='text-3xl font-bold md:text-4xl xl:text-5xl'>Loans</span>
+                  <span className='md:text-lg xl:text-xl'>Financial Services</span>
+                </div>
+                <div className='hidden md:flex-shrink-0 md:flex md:justify-center md:items-center'>
+                  <BsFillArrowUpRightCircleFill size={40} className='text-[#0C162A] xl:size-16' />
+                </div>
               </div>
-              <div className='hidden md:flex-shrink-0 md:flex md:justify-center md:items-center'>
-                <BsFillArrowUpRightCircleFill size={40} className='text-[#0C162A] xl:size-16' />
+            </div>
+            <div className='min-w-96 h-80 rounded-3xl border overflow-hidden relative md:min-w-[500px] md:h-96 xl:min-w-[600px] xl:h-[450px]'>
+              <img src="" alt="" className='bg-[#D6D6EB] h-full w-full object-cover' />
+              <div className='w-full h-auto flex absolute bottom-7 px-3 xl:bottom-10 xl:px-10'>
+                <div className='w-full flex-1 flex flex-col text-white font-jakarta xl:gap-4'>
+                  <span className='text-3xl font-bold md:text-4xl xl:text-5xl'>Tax Planning</span>
+                  <span className='md:text-lg xl:text-xl'>Financial Services</span>
+                </div>
+                <div className='hidden md:flex-shrink-0 md:flex md:justify-center md:items-center'>
+                  <BsFillArrowUpRightCircleFill size={40} className='text-[#0C162A] xl:size-16' />
+                </div>
+              </div>
+            </div>
+            <div className='min-w-96 h-80 rounded-3xl border overflow-hidden relative md:min-w-[500px] md:h-96 xl:min-w-[600px] xl:h-[450px]'>
+              <img src="" alt="" className='bg-[#D6D6EB] h-full w-full object-cover' />
+              <div className='w-full h-auto flex absolute bottom-7 px-3 xl:bottom-10 xl:px-10'>
+                <div className='w-full flex-1 flex flex-col text-white font-jakarta xl:gap-4'>
+                  <span className='text-3xl font-bold md:text-4xl xl:text-5xl'>Portfolio Solutions</span>
+                  <span className='md:text-lg xl:text-xl'>Financial Services</span>
+                </div>
+                <div className='hidden md:flex-shrink-0 md:flex md:justify-center md:items-center'>
+                  <BsFillArrowUpRightCircleFill size={40} className='text-[#0C162A] xl:size-16' />
+                </div>
+              </div>
+            </div>
+            <div className='min-w-60 h-80 rounded-3xl border overflow-hidden relative md:min-w-80 md:h-96 xl:min-w-[400px] xl:h-[450px]'>
+              <img src="" alt="" className='bg-[#D6D6EB] h-full w-full object-cover' />
+              <div className='w-full h-auto flex absolute bottom-7 px-3 xl:bottom-10 xl:px-10'>
+                <div className='w-full flex-1 flex flex-col text-white font-jakarta xl:gap-4'>
+                  <span className='text-3xl font-bold md:text-4xl xl:text-5xl'>Loans</span>
+                  <span className='md:text-lg xl:text-xl'>Financial Services</span>
+                </div>
+                <div className='hidden md:flex-shrink-0 md:flex md:justify-center md:items-center'>
+                  <BsFillArrowUpRightCircleFill size={40} className='text-[#0C162A] xl:size-16' />
+                </div>
+              </div>
+            </div>
+            <div className='min-w-96 h-80 rounded-3xl border overflow-hidden relative md:min-w-[500px] md:h-96 xl:min-w-[600px] xl:h-[450px]'>
+              <img src="" alt="" className='bg-[#D6D6EB] h-full w-full object-cover' />
+              <div className='w-full h-auto flex absolute bottom-7 px-3 xl:bottom-10 xl:px-10'>
+                <div className='w-full flex-1 flex flex-col text-white font-jakarta xl:gap-4'>
+                  <span className='text-3xl font-bold md:text-4xl xl:text-5xl'>Tax Planning</span>
+                  <span className='md:text-lg xl:text-xl'>Financial Services</span>
+                </div>
+                <div className='hidden md:flex-shrink-0 md:flex md:justify-center md:items-center'>
+                  <BsFillArrowUpRightCircleFill size={40} className='text-[#0C162A] xl:size-16' />
+                </div>
+              </div>
+            </div>
+            <div className='min-w-96 h-80 rounded-3xl border overflow-hidden relative md:min-w-[500px] md:h-96 xl:min-w-[600px] xl:h-[450px]'>
+              <img src="" alt="" className='bg-[#D6D6EB] h-full w-full object-cover' />
+              <div className='w-full h-auto flex absolute bottom-7 px-3 xl:bottom-10 xl:px-10'>
+                <div className='w-full flex-1 flex flex-col text-white font-jakarta xl:gap-4'>
+                  <span className='text-3xl font-bold md:text-4xl xl:text-5xl'>Portfolio Solutions</span>
+                  <span className='md:text-lg xl:text-xl'>Financial Services</span>
+                </div>
+                <div className='hidden md:flex-shrink-0 md:flex md:justify-center md:items-center'>
+                  <BsFillArrowUpRightCircleFill size={40} className='text-[#0C162A] xl:size-16' />
+                </div>
               </div>
             </div>
           </div>
-          <div className='min-w-96 h-80 rounded-3xl border overflow-hidden relative md:min-w-[700px] md:h-96 xl:min-w-[800px] xl:h-[450px]'>
-            <img src="" alt="" className='bg-[#D6D6EB] h-full w-full object-cover' />
-            <div className='w-full h-auto flex absolute bottom-7 px-3 xl:bottom-10 xl:px-10'>
-              <div className='w-full flex-1 flex flex-col text-white font-jakarta xl:gap-4'>
-                <span className='text-3xl font-bold md:text-4xl xl:text-5xl'>Retirement Planning</span>
-                <span className='md:text-lg xl:text-xl'>Financial Services</span>
+        </div>
+        <div className='disable-scrollbar w-full h-auto flex overflow-x-scroll px-1'>
+          <div ref={slider2Ref} className='w-full h-auto flex gap-5 xl:gap-8 justify-end items-end'>
+            <div className='min-w-96 h-80 rounded-3xl border overflow-hidden relative md:min-w-[700px] md:h-96 xl:min-w-[800px] xl:h-[450px]'>
+              <img src="" alt="" className='bg-[#D6D6EB] h-full w-full object-cover' />
+              <div className='w-full h-auto flex absolute bottom-7 px-3 xl:bottom-10 xl:px-10'>
+                <div className='w-full flex-1 flex flex-col text-white font-jakarta xl:gap-4'>
+                  <span className='text-3xl font-bold md:text-4xl xl:text-5xl'>Loans Solutions</span>
+                  <span className='md:text-lg xl:text-xl'>Financial Services</span>
+                </div>
+                <div className='hidden md:flex-shrink-0 md:flex md:justify-center md:items-center'>
+                  <BsFillArrowUpRightCircleFill size={40} className='text-[#0C162A] xl:size-16' />
+                </div>
               </div>
-              <div className='hidden md:flex-shrink-0 md:flex md:justify-center md:items-center'>
-                <BsFillArrowUpRightCircleFill size={40} className='text-[#0C162A] xl:size-16' />
+            </div>
+            <div className='min-w-96 h-80 rounded-3xl border overflow-hidden relative md:min-w-[700px] md:h-96 xl:min-w-[800px] xl:h-[450px]'>
+              <img src="" alt="" className='bg-[#D6D6EB] h-full w-full object-cover' />
+              <div className='w-full h-auto flex absolute bottom-7 px-3 xl:bottom-10 xl:px-10'>
+                <div className='w-full flex-1 flex flex-col text-white font-jakarta xl:gap-4'>
+                  <span className='text-3xl font-bold md:text-4xl xl:text-5xl'>Retirement Planning</span>
+                  <span className='md:text-lg xl:text-xl'>Financial Services</span>
+                </div>
+                <div className='hidden md:flex-shrink-0 md:flex md:justify-center md:items-center'>
+                  <BsFillArrowUpRightCircleFill size={40} className='text-[#0C162A] xl:size-16' />
+                </div>
+              </div>
+            </div>
+            <div className='min-w-96 h-80 rounded-3xl border overflow-hidden relative md:min-w-[700px] md:h-96 xl:min-w-[800px] xl:h-[450px]'>
+              <img src="" alt="" className='bg-[#D6D6EB] h-full w-full object-cover' />
+              <div className='w-full h-auto flex absolute bottom-7 px-3 xl:bottom-10 xl:px-10'>
+                <div className='w-full flex-1 flex flex-col text-white font-jakarta xl:gap-4'>
+                  <span className='text-3xl font-bold md:text-4xl xl:text-5xl'>Loans Solutions</span>
+                  <span className='md:text-lg xl:text-xl'>Financial Services</span>
+                </div>
+                <div className='hidden md:flex-shrink-0 md:flex md:justify-center md:items-center'>
+                  <BsFillArrowUpRightCircleFill size={40} className='text-[#0C162A] xl:size-16' />
+                </div>
+              </div>
+            </div>
+            <div className='min-w-96 h-80 rounded-3xl border overflow-hidden relative md:min-w-[700px] md:h-96 xl:min-w-[800px] xl:h-[450px]'>
+              <img src="" alt="" className='bg-[#D6D6EB] h-full w-full object-cover' />
+              <div className='w-full h-auto flex absolute bottom-7 px-3 xl:bottom-10 xl:px-10'>
+                <div className='w-full flex-1 flex flex-col text-white font-jakarta xl:gap-4'>
+                  <span className='text-3xl font-bold md:text-4xl xl:text-5xl'>Retirement Planning</span>
+                  <span className='md:text-lg xl:text-xl'>Financial Services</span>
+                </div>
+                <div className='hidden md:flex-shrink-0 md:flex md:justify-center md:items-center'>
+                  <BsFillArrowUpRightCircleFill size={40} className='text-[#0C162A] xl:size-16' />
+                </div>
               </div>
             </div>
           </div>
