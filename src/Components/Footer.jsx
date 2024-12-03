@@ -109,7 +109,7 @@ function Footer() {
                     <span className='font-semibold flex justify-between items-center gap-4'>Book An Appointments <FaCaretRight size={20}/></span>
                 </div>
                 <div className='w-full h-auto text-white flex justify-center items-center text-sm md:w-auto'>
-                    <span className='font-normal'>© 2022 – 2025 | Design Reserved by codeblish</span>
+                    <span className='font-normal'>© 2022 – 2025 | Loanji, made with 💖 by Campaigning Source, all rights reserved</span>
                 </div>
             </div>
         </footer>
