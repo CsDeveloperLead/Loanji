@@ -15,7 +15,7 @@ import Blogs from './Components/Admin/Blogs.jsx'
 import Admin from './Admin.jsx'
 import CreateBlog from './Components/Admin/CreateBlog.jsx'
 import SingleBlogPage from './Components/SingleBlogPage.jsx'
-import AboutUs from './Components/Aboutus.jsx'
+import AboutUs from './Components/AboutUs.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
