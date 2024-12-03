@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { MdOutlineDeleteForever } from "react-icons/md";
 import { IoEyeSharp } from "react-icons/io5";
 import { useState, useEffect } from 'react';
@@ -34,10 +34,6 @@ const Blogs = () => {
     useEffect(() => {
         fetchBlogs();
     }, []);
-
-    const handleViewBlog = (id) => {
-        // navigate(`/blog?q=${id}`);
-    };
 
     const confirmDelete = async () => {
         try {
@@ -80,19 +76,19 @@ const Blogs = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {blogs.map((blog) => (
-                            <tr key={blog._id}>
-                                <td className='p-2'>{blog._id}</td>
-                                <td className='p-2'>{blog.title.substring(0, 35)}{blog.title.length <= 35 ? "" : "..."}</td>
-                                <td className='p-2'>{blog.content.substring(0, 70)}{blog.content.length <= 70 ? "" : "..."}</td>
-                                <td className='p-2'>{blog.category}</td>
-                                <td className='p-2'>{blog.tag}</td>
+                        {blogs.map((item) => (
+                            <tr key={item._id}>
+                                <td className='p-2'>{item._id}</td>
+                                <td className='p-2'>{item.title.substring(0, 35)}{item.title.length <= 35 ? "" : "..."}</td>
+                                <td className='p-2'>{item.content.substring(0, 70)}{item.content.length <= 70 ? "" : "..."}</td>
+                                <td className='p-2'>{item.category}</td>
+                                <td className='p-2'>{item.tag}</td>
                                 <td className='p-2'>
-                                    <IoEyeSharp size={25} onClick={() => handleViewBlog(blog._id)} className='cursor-pointer mx-auto text-[#0159A5]' />
+                                    <NavLink to='/single-blog' state={{ item }} ><IoEyeSharp size={25} className='cursor-pointer mx-auto text-[#0159A5]' /></NavLink>
                                 </td>
                                 <td className='p-2'>
                                     <MdOutlineDeleteForever size={25} className='cursor-pointer mx-auto text-[#0159A5]' onClick={() => {
-                                        setCurrentBlogId(blog._id);
+                                        setCurrentBlogId(item._id);
                                         setShowDeleteDialog(true);
                                     }} />
                                 </td>

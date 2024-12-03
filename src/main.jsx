@@ -14,13 +14,17 @@ import { AuthProvider } from './Components/AuthContext.jsx'
 import Blogs from './Components/Admin/Blogs.jsx'
 import Admin from './Admin.jsx'
 import CreateBlog from './Components/Admin/CreateBlog.jsx'
+import SingleBlogPage from './Components/SingleBlogPage.jsx'
+import AboutUs from './Components/Aboutus.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route path="/" element={<App />} >
         <Route path="/" element={<Home />} />
+        <Route path="/about" element={<AboutUs />} />
         <Route path="/blog" element={<BlogsPage />} />
+        <Route path="/single-blog" element={<SingleBlogPage />} />
         <Route path="/contact-us" element={<ContactUsPage />} />
         <Route path="/service-details" element={<ServiceDetailsPage />} />
         <Route path="/admin" element={<AdminLogin />} />

@@ -10,8 +10,16 @@ function CreateBlog() {
         blogTag: "",
         blogContent: "",
     });
-    const [image, setImage] = useState(null);
-    const [imageUrl, setImageUrl] = useState("");
+    const [images, setImages] = useState({
+        image: null,
+        image1: null,
+        image2: null,
+    });
+    const [previews, setPreviews] = useState({
+        image: "",
+        image1: "",
+        image2: "",
+    });
 
     // Handle form field changes
     const handleInputChange = (e) => {
@@ -23,17 +31,18 @@ function CreateBlog() {
     };
 
     // Handle image upload
-    const handleImageChange = (event) => {
-        const file = event.target.files[0];
+    const handleImageChange = (e, imageKey) => {
+        const file = e.target.files[0];
         if (file) {
             const reader = new FileReader();
             reader.onloadend = () => {
-                setImageUrl(reader.result);
+                setPreviews((prev) => ({ ...prev, [imageKey]: reader.result }));
             };
             reader.readAsDataURL(file);
-            setImage(file); // Save the file for FormData
+            setImages((prev) => ({ ...prev, [imageKey]: file })); // Save file for FormData
         }
     };
+
 
     // Handle form submission
     const handleSubmit = async (e) => {
@@ -41,7 +50,7 @@ function CreateBlog() {
 
         // Validate form fields
         const { blogTitle, blogCategory, blogTag, blogContent } = formData;
-        if (!blogTitle || !blogCategory || !blogTag || !blogContent || !image) {
+        if (!blogTitle || !blogCategory || !blogTag || !blogContent || !images.image) {
             alert("Please fill all fields and upload an image!");
             return;
         }
@@ -52,7 +61,9 @@ function CreateBlog() {
         formPayload.append("blogCategory", blogCategory);
         formPayload.append("blogTag", blogTag);
         formPayload.append("blogContent", blogContent);
-        formPayload.append("image", image);
+        formPayload.append("image", images.image);
+        if (images.image1) formPayload.append("image1", images.image1); // Optional image1
+        if (images.image2) formPayload.append("image2", images.image2); // Optional image2
 
         try {
             // Send data to backend
@@ -61,14 +72,15 @@ function CreateBlog() {
                     "Content-Type": "multipart/form-data",
                 },
             });
-            setImageUrl('')
             alert("Blog submitted successfully!");
+            setPreviews({ image: "", image1: "", image2: "" });
+            setImages({ image: null, image1: null, image2: null });
             setFormData({
-                blogTitle: '',
-                blogContent: '',
-                blogTag: '',
-                blogCategory: ''
-            })
+                blogTitle: "",
+                blogCategory: "",
+                blogTag: "",
+                blogContent: "",
+            });
         } catch (error) {
             console.error("Error submitting blog:", error);
             alert("Failed to submit the blog. Please try again.");
@@ -87,9 +99,9 @@ function CreateBlog() {
             >
                 {/* Image Upload Section */}
                 <div className="w-full max-w-2xl h-72 bg-gray-300 rounded-lg border-2 border-dashed border-gray-400 flex justify-center items-center relative group">
-                    {imageUrl ? (
+                    {previews.image ? (
                         <img
-                            src={imageUrl}
+                            src={previews.image}
                             alt="Preview"
                             className="w-full h-full object-cover rounded-lg"
                         />
@@ -102,12 +114,41 @@ function CreateBlog() {
                     <input
                         type="file"
                         accept="image/*"
-                        onChange={handleImageChange}
+                        onChange={(e) => handleImageChange(e, "image")}
                         className="absolute inset-0 opacity-0 cursor-pointer"
                     />
                     <span className="absolute bottom-4 text-white text-sm">
                         Drag and drop an image here, or click to select one.
                     </span>
+                </div>
+
+                {/* Optional Image1 and Image2 Upload */}
+                <div className="w-full max-w-3xl flex flex-col md:flex-row justify-between gap-4">
+                    {[["image1", "Optional Image 1"], ["image2", "Optional Image 2"]].map(([key, label]) => (
+                        <div
+                            key={key}
+                            className="w-full h-72 bg-gray-300 rounded-lg border-2 border-dashed border-gray-400 flex justify-center items-center relative group"
+                        >
+                            {previews[key] ? (
+                                <img
+                                    src={previews[key]}
+                                    alt="Preview"
+                                    className="w-full h-full object-cover rounded-lg"
+                                />
+                            ) : (
+                                <div className="w-20 h-20 bg-gray-500 text-white text-4xl rounded-full flex justify-center items-center">
+                                    <span>+</span>
+                                </div>
+                            )}
+                            <input
+                                type="file"
+                                accept="image/*"
+                                onChange={(e) => handleImageChange(e, key)}
+                                className="absolute inset-0 opacity-0 cursor-pointer"
+                            />
+                            <span className="absolute bottom-4 text-white text-sm">{label}</span>
+                        </div>
+                    ))}
                 </div>
 
                 <div className="w-full max-w-3xl px-4">

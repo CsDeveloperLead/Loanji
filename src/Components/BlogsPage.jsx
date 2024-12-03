@@ -3,6 +3,7 @@ import { LuMoveRight } from "react-icons/lu";
 import { CiSearch } from "react-icons/ci";
 import { IoFilter } from "react-icons/io5";
 import axios from 'axios';
+import { NavLink } from 'react-router-dom';
 
 const backend = import.meta.env.VITE_BACKEND_URL
 
@@ -84,12 +85,12 @@ function BlogsPage() {
                 {/* All Blogs */}
                 <div className='w-full h-auto grid grid-cols-1 place-items-center gap-7 sm:grid-cols-2 md:w-[80%] md:mx-auto lg:w-[60%] lg:gap-8'>
                     {
-                        blogs.length > 1
+                        blogs.length >= 1
                             ? blogs.map((item, index) => (
-                                <div key={index} className='w-[90%] h-auto flex flex-col gap-3 2xl:w-[85%]'>
+                                <NavLink to='/single-blog' state={{ item }} key={index} className='w-[90%] h-auto flex flex-col gap-3 2xl:w-[85%] cursor-pointer'>
                                     <div className='w-full h-auto relative'>
                                         <img src={item.image} alt="blog image" className='w-full h-52 rounded-xl bg-[#D6D6EB]' />
-                                        <span className='absolute top-0 bg-[#08AABD1A] text-[#292833] border border-[#0159A5] font-medium m-3 font-dmSans px-3 py-2 text-sm rounded-xl flex gap-3 items-center cursor-pointer xl:text-base'>{item.category} <LuMoveRight size={20} /></span>
+                                        <span className='absolute top-0 bg-[#08abbdba] text-[#292833] border border-[#0159A5] font-medium m-3 font-dmSans px-3 py-2 text-sm rounded-xl flex gap-3 items-center cursor-pointer xl:text-base'>{item.category} <LuMoveRight size={20} /></span>
                                     </div>
                                     <div className='w-full h-auto flex flex-col gap-3'>
                                         <div className='w-full h-auto flex items-center gap-2'>
@@ -99,7 +100,7 @@ function BlogsPage() {
                                         <h1 className='text-[#292833] font-dmSans font-bold'>{item.title.slice(0, 45)}</h1>
                                         <p className='text-[#292833] font-dmSans font-normal text-sm'>{item.content.slice(0, 190) + '...'}</p>
                                     </div>
-                                </div>
+                                </NavLink>
                             ))
                             : <p>No Blogs available</p>
                     }
