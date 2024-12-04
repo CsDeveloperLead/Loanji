@@ -28,6 +28,12 @@ function BlogsPage() {
         }
     };
 
+    const formatDate = (isoString) => {
+        const date = new Date(isoString); // Parse the ISO date string
+        const options = { day: "2-digit", month: "long", year: "numeric" }; // Format options
+        return date.toLocaleDateString("en-GB", options); // Format to "19 June 2024"
+    };
+
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (dropdownRef.current && !dropdownRef.current.contains(event.target) && !filterButtonRef.current.contains(event.target)) {
@@ -95,7 +101,7 @@ function BlogsPage() {
                                     <div className='w-full h-auto flex flex-col gap-3'>
                                         <div className='w-full h-auto flex items-center gap-2'>
                                             <span className='bg-[#08AABD1A] text-[#292833] border border-[#0159A5] font-medium font-dmSans px-5 py-1 xl:py-1.5 text-sm rounded-full flex gap-3 items-center cursor-pointer'>{item.tag}</span>
-                                            <span className='text-[#292833] text-xs font-normal lg:text-sm'>19.06.2024</span>
+                                            <span className='text-[#292833] text-xs font-normal lg:text-sm'>{formatDate(item.createdAt)}</span>
                                         </div>
                                         <h1 className='text-[#292833] font-dmSans font-bold'>{item.title.slice(0, 45)}</h1>
                                         <p className='text-[#292833] font-dmSans font-normal text-sm'>{item.content.slice(0, 190) + '...'}</p>

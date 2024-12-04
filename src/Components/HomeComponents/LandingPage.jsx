@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { LuMoveRight } from "react-icons/lu";
 import { NavLink } from 'react-router-dom';
 import { MdOutlineStarPurple500 } from "react-icons/md";
@@ -9,8 +9,39 @@ import Small2 from '../../assets/HomePageImages/LandingPageImages/small2.png'
 import Small3 from '../../assets/HomePageImages/LandingPageImages/small3.png'
 import Small4 from '../../assets/HomePageImages/LandingPageImages/small4.png'
 
+function UpwardsCarousel({ items }) {
+    const [index, setIndex] = useState(0)
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setIndex((prev) => (prev + 1) % items.length)
+        }, 3000);
+
+        return () => clearInterval(interval);
+
+    }, [items.length])
+
+    return (
+        <div className="relative w-full h-10 overflow-hidden md:h-11 lg:h-14 xl:h-[69px]">
+            <div className="flex flex-col transition-transform duration-500" style={{ transform: `translateY(-${index * 33}%)` }}>
+                {
+                    items.map((item, i) => (
+                        <div key={i} className="flex w-full xl:h-[69px] justify-start items-start text-[#0159a5] h-10 md:h-11 lg:h-14">
+                            {item}
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    )
+}
 
 function LandingPage() {
+    const carousal = [
+        "Finances",
+        "Budget",
+        "Expenses",
+    ]
     return (
         <div className='w-full h-auto mt-12 md:mt-14 xl:mt-24 flex flex-col px-5 py-10 sm:px-20 md:px-5 md:flex-row lg:px-20'>
             <div className='w-full h-auto flex flex-col gap-4 md:w-[50%] lg:w-[60%] xl:w-[55%]'>
@@ -22,7 +53,7 @@ function LandingPage() {
                     </div>
                 </div>
                 <div className='w-full h-auto flex flex-col gap-2'>
-                    <p className='text-3xl font-semibold font-jakarta md:text-4xl lg:text-5xl 2xl:text-6xl'>Manage Your <span className='text-[#0159A5]'>Financial</span></p>
+                    <p className='text-3xl font-semibold font-jakarta md:text-4xl lg:text-5xl 2xl:text-6xl flex gap-2 flex-wrap'>Manage Your <div className='text-[#0159A5]'><UpwardsCarousel items={carousal} /></div></p>
                     <p className='text-3xl font-semibold font-jakarta md:text-4xl lg:text-5xl 2xl:text-6xl'>Services by Single Swap</p>
                     <p className='font-dmSans text-sm mt-5 lg:pr-40 xl:text-base'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
                 </div>

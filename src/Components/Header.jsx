@@ -28,7 +28,7 @@ function Header() {
                         : <FaBars onClick={() => setSidebar(true)} size={25} className='md:hidden' />
                 }
                 {/* Sidebar for small screens */}
-                <div className={`w-80 h-full fixed bg-gray-200 top-[70px] flex flex-col z-30 duration-300 ease-in-out sm:w-96 md:hidden p-2 ${sidebar ? 'translate-x-0' : 'translate-x-60'}`}>
+                <div className={`w-80 h-full fixed bg-gray-200 top-[69px] flex flex-col z-30 duration-300 ease-in-out sm:w-96 md:hidden p-2 ${sidebar ? 'translate-x-0' : 'translate-x-60'}`}>
                     <NavLink onClick={() => setSidebar(false)} to='/' className={({ isActive }) => `${isActive ? 'text-[#0159A5]' : 'text-[#424648]'} cursor-pointer active:text-[#0159A5] active:bg-gray-300 py-3 px-3`}>Home</NavLink>
                     <NavLink onClick={() => setSidebar(false)} to='/about' className={({ isActive }) => `${isActive ? 'text-[#0159A5]' : 'text-[#424648]'} cursor-pointer active:text-[#0159A5] active:bg-gray-300 py-3 px-3`}>About</NavLink>
                     <NavLink onClick={() => setSidebar(false)} to='/services' className={({ isActive }) => `${isActive ? 'text-[#0159A5]' : 'text-[#424648]'} cursor-pointer active:text-[#0159A5] active:bg-gray-300 py-3 px-3`}>Services</NavLink>
