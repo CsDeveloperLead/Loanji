@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { LuMoveRight } from "react-icons/lu";
 
@@ -11,6 +11,10 @@ function SingleBlogPage() {
         const options = { day: "2-digit", month: "long", year: "numeric" }; // Format options
         return date.toLocaleDateString("en-GB", options); // Format to "19 June 2024"
     };
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
 
     return (
         <div className='w-full h-auto flex flex-col sm:w-[80%] md:w-[90%] mx-auto pb-10'>
