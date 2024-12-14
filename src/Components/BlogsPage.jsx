@@ -19,7 +19,6 @@ function BlogsPage() {
         try {
             setLoading(true)
             const response = await axios.post(`${backend}/api/v1/admin/get-blogs`)
-            console.log(response.data.message);
             setBlogs(response.data.message)
             setLoading(true)
         } catch (error) {
