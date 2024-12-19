@@ -53,44 +53,6 @@ function CaseStudies() {
         </div>
       </div>
       <div className='w-full h-auto flex flex-col gap-5 xl:gap-10'>
-        {/* <div className='disable-scrollbar w-full h-auto flex overflow-x-scroll gap-5 xl:gap-8 px-1'>
-          <div className='min-w-60 h-80 rounded-3xl border overflow-hidden relative md:min-w-80 md:h-96 xl:min-w-[400px] xl:h-[450px]'>
-            <img src="" alt="" className='bg-[#D6D6EB] h-full w-full object-cover' />
-            <div className='w-full h-auto flex absolute bottom-7 px-3 xl:bottom-10 xl:px-10'>
-              <div className='w-full flex-1 flex flex-col text-white font-jakarta xl:gap-4'>
-                <span className='text-3xl font-bold md:text-4xl xl:text-5xl'>Loans</span>
-                <span className='md:text-lg xl:text-xl'>Financial Services</span>
-              </div>
-              <div className='hidden md:flex-shrink-0 md:flex md:justify-center md:items-center'>
-                <BsFillArrowUpRightCircleFill size={40} className='text-[#0C162A] xl:size-16' />
-              </div>
-            </div>
-          </div>
-          <div className='min-w-96 h-80 rounded-3xl border overflow-hidden relative md:min-w-[500px] md:h-96 xl:min-w-[600px] xl:h-[450px]'>
-            <img src="" alt="" className='bg-[#D6D6EB] h-full w-full object-cover' />
-            <div className='w-full h-auto flex absolute bottom-7 px-3 xl:bottom-10 xl:px-10'>
-              <div className='w-full flex-1 flex flex-col text-white font-jakarta xl:gap-4'>
-                <span className='text-3xl font-bold md:text-4xl xl:text-5xl'>Tax Planning</span>
-                <span className='md:text-lg xl:text-xl'>Financial Services</span>
-              </div>
-              <div className='hidden md:flex-shrink-0 md:flex md:justify-center md:items-center'>
-                <BsFillArrowUpRightCircleFill size={40} className='text-[#0C162A] xl:size-16' />
-              </div>
-            </div>
-          </div>
-          <div className='min-w-96 h-80 rounded-3xl border overflow-hidden relative md:min-w-[500px] md:h-96 xl:min-w-[600px] xl:h-[450px]'>
-            <img src="" alt="" className='bg-[#D6D6EB] h-full w-full object-cover' />
-            <div className='w-full h-auto flex absolute bottom-7 px-3 xl:bottom-10 xl:px-10'>
-              <div className='w-full flex-1 flex flex-col text-white font-jakarta xl:gap-4'>
-                <span className='text-3xl font-bold md:text-4xl xl:text-5xl'>Portfolio Solutions</span>
-                <span className='md:text-lg xl:text-xl'>Financial Services</span>
-              </div>
-              <div className='hidden md:flex-shrink-0 md:flex md:justify-center md:items-center'>
-                <BsFillArrowUpRightCircleFill size={40} className='text-[#0C162A] xl:size-16' />
-              </div>
-            </div>
-          </div>
-        </div> */}
         <div
           className="disable-scrollbar w-full h-auto flex overflow-x-scroll scroll-smooth px-1"
         >

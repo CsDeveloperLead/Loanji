@@ -34,6 +34,7 @@ function BlogsPage() {
     };
 
     useEffect(() => {
+        window.scrollTo(0,0)
         const handleClickOutside = (event) => {
             if (dropdownRef.current && !dropdownRef.current.contains(event.target) && !filterButtonRef.current.contains(event.target)) {
                 setDropDown(false);
@@ -92,7 +93,7 @@ function BlogsPage() {
                     {
                         blogs.length >= 1
                             ? blogs.map((item, index) => (
-                                <NavLink to='/single-blog' state={{ item }} key={index} className='w-[90%] h-auto flex flex-col gap-3 2xl:w-[85%] cursor-pointer'>
+                                <NavLink to={`/single-blog/${item._id}`} key={index} className='w-[90%] h-auto flex flex-col gap-3 2xl:w-[85%] cursor-pointer'>
                                     <div className='w-full h-auto relative'>
                                         <img src={item.image} alt="blog image" className='w-full h-52 rounded-xl bg-[#D6D6EB]' />
                                         <span className='absolute top-0 bg-[#08abbdba] text-[#292833] border border-[#0159A5] font-medium m-3 font-dmSans px-3 py-2 text-sm rounded-xl flex gap-3 items-center cursor-pointer xl:text-base'>{item.category} <LuMoveRight size={20} /></span>
