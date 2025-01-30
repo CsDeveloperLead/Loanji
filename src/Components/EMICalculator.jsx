@@ -3,11 +3,7 @@ import { PieChart, Pie, Cell, Tooltip } from "recharts";
 import { HiOutlineArrowNarrowRight } from "react-icons/hi";
 
 function EMICalculator() {
-    
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
+  
   const [loanAmount, setLoanAmount] = useState(100000);
   const [interestRate, setInterestRate] = useState(10);
   const [loanTenure, setLoanTenure] = useState(1);

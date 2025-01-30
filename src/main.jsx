@@ -32,7 +32,7 @@ const router = createBrowserRouter(
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/repay-loan" element={<RepayLoan />} />
-        {/* <Route path="/services/:serviceName" element={<Services />} /> */}
+        <Route path="/services/:serviceName" element={<Services />} />
         <Route path="/blog" element={<BlogsPage />} />
         <Route path="/single-blog/:id" element={<SingleBlogPage />} />
         <Route path="/contact-us" element={<ContactUsPage />} />

@@ -16,22 +16,22 @@ function Header() {
     {
       name: "Household emergency",
       description: "Household emergency Realted Loan",
-      path: "/household-emergency",
+      path: "household-emergency",
     },
     {
       name: "Vehicle Loan",
       description: "Vehicle Loan Related Loan",
-      path: "/vehicle-loan",
+      path: "vehicle-loan",
     },
     {
       name: "Personal Loan",
       description: "Personal Loan Related Loan",
-      path: "/personal-loan",
+      path: "personal-loan",
     },
     {
       name: "Pocket loan",
       description: "Pocket loan Related Loan",
-      path: "/pocket-loan",
+      path: "pocket-loan",
     },
   ];
 
@@ -77,7 +77,7 @@ function Header() {
               {services.map((service, index) => (
                 <NavLink
                   key={index}
-                  to={`/services/${service.path.replace("/", "")}`}
+                  to={`/services/${service.path}`}
                   className="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-blue-600"
                   onMouseEnter={() => setHoveredService(service.name)}
                   onMouseLeave={() => setHoveredService(null)}
@@ -177,14 +177,24 @@ function Header() {
           >
             About
           </NavLink>
-          <div className="py-3 px-3 cursor-pointer text-[#424648] flex items-center justify-between hover:text-[#0159A5]" onClick={() => setMobileDropdown(!mobileDropdown)}>
+          <div
+            className="py-3 px-3 cursor-pointer text-[#424648] flex items-center justify-between hover:text-[#0159A5]"
+            onClick={() => setMobileDropdown(!mobileDropdown)}
+          >
             <span>Services</span>
             {mobileDropdown ? <IoChevronUp /> : <IoChevronDown />}
           </div>
           {mobileDropdown && (
             <div className="ml-5 border-l pl-3">
               {services.map((service, index) => (
-                <NavLink key={index} to={`/services/${service.path.replace("/", "")}`} className="block py-2 px-3 text-[#606F76] hover:text-[#0159A5]" onClick={() => setSidebar(false)}>{service.name}</NavLink>
+                <NavLink
+                  key={index}
+                  to={`/services/${service.path}`}
+                  className="block py-2 px-3 text-[#606F76] hover:text-[#0159A5]"
+                  onClick={() => setSidebar(false)}
+                >
+                  {service.name}
+                </NavLink>
               ))}
             </div>
           )}
