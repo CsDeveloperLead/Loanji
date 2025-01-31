@@ -24,6 +24,7 @@ import AboutUs from "./Components/AboutUs.jsx";
 import Services from "./Components/Services.jsx";
 import RepayLoan from "./Components/RepayLoan.jsx";
 import EMICalculator from "./Components/EMICalculator.jsx";
+import ApplyNow from "./Components/ApplyNow.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -38,6 +39,7 @@ const router = createBrowserRouter(
         <Route path="/contact-us" element={<ContactUsPage />} />
         <Route path="/service-details" element={<ServiceDetailsPage />} />
         <Route path="/emi-calculator" element={<EMICalculator />} />
+        <Route path="/apply-now" element={<ApplyNow />} />
         <Route path="/admin" element={<AdminLogin />} />
         <Route path="/admin-dashboard" element={<Admin />}>
         <Route path="/admin-dashboard" element={<AdminDashboard />} />

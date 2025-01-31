@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FaBars } from "react-icons/fa6";
 import { HiOutlineArrowNarrowRight } from "react-icons/hi";
-import { NavLink } from "react-router-dom";
+import { Navigate, useNavigate, NavLink } from "react-router-dom";
 import Logo from "../assets/mainLogo.png";
 import SideNavbar from "./Admin/SideNav";
 import { IoClose, IoChevronDown, IoChevronUp } from "react-icons/io5";
@@ -11,6 +11,8 @@ function Header() {
   const [dropdown, setDropdown] = useState(false);
   const [hoveredService, setHoveredService] = useState(null);
   const [mobileDropdown, setMobileDropdown] = useState(false);
+
+  const Navigate = useNavigate();
 
   const services = [
     {
@@ -211,6 +213,18 @@ function Header() {
           </NavLink>
           <NavLink
             onClick={() => setSidebar(false)}
+            to="/emi-calculator"
+            className={({ isActive }) =>
+              `${
+                isActive ? "text-[#0159A5]" : "text-[#424648]"
+              } cursor-pointer active:text-[#0159A5] active:bg-gray-300 py-3 px-3`
+            }
+          >
+            EMI Calculator
+          </NavLink>
+
+          <NavLink
+            onClick={() => setSidebar(false)}
             to="/contact-us"
             className={({ isActive }) =>
               `${
@@ -232,10 +246,10 @@ function Header() {
             Blog
           </NavLink>
         </div>
-        <span className="w-auto h-auto py-2 px-4 bg-[#0159A5] font-dmSans hidden text-white font-semibold rounded-2xl md:flex md:items-center gap-2 xl:px-6 cursor-pointer md:hover:bg-[#0158a5ce]">
+        <button onClick={() => Navigate("/apply-now")} className="w-auto h-auto py-2 px-4 bg-[#0159A5] font-dmSans hidden text-white font-semibold rounded-2xl md:flex md:items-center gap-2 xl:px-6 cursor-pointer md:hover:bg-[#0158a5ce]">
           Apply Now
           <HiOutlineArrowNarrowRight size={25} />
-        </span>
+        </button>
       </div>
       <SideNavbar />
     </header>

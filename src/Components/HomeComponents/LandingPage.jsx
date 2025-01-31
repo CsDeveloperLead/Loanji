@@ -75,10 +75,10 @@ function LandingPage() {
         <div className="w-full h-auto mt-5 xl:mt-10">
           <div className="w-auto h-auto flex items-center gap-4">
             <NavLink
-              to="/"
+              to="/apply-now"
               className="bg-[#0159A5] font-[500] font-dmSans text-white px-3 py-2 rounded-xl flex gap-3 items-center active:bg-[#0158a5ce] cursor-pointer md:hover:bg-[#0158a5ce] xl:px-5 xl:text-lg"
             >
-              Get Started <LuMoveRight size={20} />
+              Apply Now<LuMoveRight size={20} />
             </NavLink>
             <NavLink
               to="/"
