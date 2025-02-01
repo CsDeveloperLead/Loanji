@@ -187,7 +187,7 @@ function Header() {
             {mobileDropdown ? <IoChevronUp /> : <IoChevronDown />}
           </div>
           {mobileDropdown && (
-            <div className="ml-5 border-l pl-3">
+            <div className="ml-2 border-1">
               {services.map((service, index) => (
                 <NavLink
                   key={index}
@@ -195,7 +195,7 @@ function Header() {
                   className="block py-2 px-3 text-[#606F76] hover:text-[#0159A5]"
                   onClick={() => setSidebar(false)}
                 >
-                  {service.name}
+                {service.name}
                 </NavLink>
               ))}
             </div>
