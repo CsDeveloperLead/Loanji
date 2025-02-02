@@ -9,3 +9,7 @@ html {
 .disable-scrollbar::-webkit-scrollbar {
     display: none;
 }
+
+.recharts-pie-sector {
+  transition: fill 0.3s ease;
+}
